@@ -1,8 +1,8 @@
 package parser
 
 import (
-	"github.com/yoheimuta/go-protoparser/internal/lexer/scanner"
-	"github.com/yoheimuta/go-protoparser/parser/meta"
+	"github.com/thought-machine/go-protoparser/internal/lexer/scanner"
+	"github.com/thought-machine/go-protoparser/parser/meta"
 )
 
 // FieldOption is an option for the field.
@@ -208,21 +208,56 @@ func (p *Parser) parseGoProtoValidatorFieldOptionConstant() (string, error) {
 		}
 		ret += p.lex.Text
 
-		constant, _, err := p.lex.ReadConstant()
-		if err != nil {
-			return "", err
+		switch p.lex.Peek() {
+		case scanner.TLEFTSQUARE:
+			_, opsErr := p.parseConstList()
+			if opsErr != nil {
+				return "", opsErr
+			}
+		default:
+			constant, _, err := p.lex.ReadConstant()
+			if err != nil {
+				return "", err
+			}
+			ret += constant
 		}
-		ret += constant
 
 		p.lex.Next()
 		switch {
 		case p.lex.Token == scanner.TCOMMA:
 			ret += p.lex.Text
+			if p.lex.Peek() == scanner.TRIGHTCURLY {
+				p.lex.Next()
+				ret += p.lex.Text
+				return ret, nil
+			}
 		case p.lex.Token == scanner.TRIGHTCURLY:
 			ret += p.lex.Text
 			return ret, nil
 		default:
-			return "", p.unexpected("}")
+			p.lex.UnNext()
+		}
+	}
+}
+
+func (p *Parser) parseConstList() ([]string, error) {
+	p.lex.Next()
+	if p.lex.Token != scanner.TLEFTSQUARE {
+		return nil, p.unexpected("[")
+	}
+	var consts []string
+	for {
+		if p.lex.Peek() == scanner.TRIGHTSQUARE {
+			p.lex.Next()
+			return consts, nil
+		}
+		p.lex.NextStrLit()
+		if p.lex.Token != scanner.TSTRLIT {
+			return nil, p.unexpected("String Lit")
+		}
+		consts = append(consts, p.lex.Text)
+		if p.lex.Peek() == scanner.TCOMMA {
+			p.lex.Next()
 		}
 	}
 }

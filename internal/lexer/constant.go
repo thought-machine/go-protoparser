@@ -1,6 +1,6 @@
 package lexer
 
-import "github.com/yoheimuta/go-protoparser/internal/lexer/scanner"
+import "github.com/thought-machine/go-protoparser/internal/lexer/scanner"
 
 // ReadConstant reads a constant.
 // constant = fullIdent | ( [ "-" | "+" ] intLit ) | ( [ "-" | "+" ] floatLit ) | strLit | boolLit

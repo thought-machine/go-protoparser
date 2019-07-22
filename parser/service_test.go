@@ -5,10 +5,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/yoheimuta/go-protoparser/internal/lexer"
-	"github.com/yoheimuta/go-protoparser/internal/util_test"
-	"github.com/yoheimuta/go-protoparser/parser"
-	"github.com/yoheimuta/go-protoparser/parser/meta"
+	"github.com/thought-machine/go-protoparser/internal/lexer"
+	"github.com/thought-machine/go-protoparser/internal/util_test"
+	"github.com/thought-machine/go-protoparser/parser"
+	"github.com/thought-machine/go-protoparser/parser/meta"
 )
 
 func TestParser_ParseService(t *testing.T) {
@@ -125,6 +125,11 @@ service SearchService {
 										Line:   3,
 										Column: 57,
 									},
+									LastPos: meta.Position{
+										Offset: 108,
+										Line:   3,
+										Column: 84,
+									},
 								},
 							},
 						},
@@ -194,12 +199,17 @@ service SearchService {
 						Options: []*parser.Option{
 							{
 								OptionName: "(my_option).a",
-								Constant:   "true",
+							Constant:   "true",
 								Meta: meta.Meta{
 									Pos: meta.Position{
 										Offset: 83,
 										Line:   4,
 										Column: 2,
+									},
+									LastPos: meta.Position{
+										Offset: 110,
+										Line:   4,
+										Column: 29,
 									},
 								},
 							},
@@ -211,6 +221,11 @@ service SearchService {
 										Offset: 114,
 										Line:   5,
 										Column: 2,
+									},
+									LastPos: meta.Position{
+										Offset: 142,
+										Line:   5,
+										Column: 30,
 									},
 								},
 							},

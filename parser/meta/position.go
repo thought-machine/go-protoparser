@@ -3,7 +3,7 @@ package meta
 import (
 	"fmt"
 
-	"github.com/yoheimuta/go-protoparser/internal/lexer/scanner"
+	"github.com/thought-machine/go-protoparser/internal/lexer/scanner"
 )
 
 // Position represents a source position.

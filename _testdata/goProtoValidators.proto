@@ -1,16 +1,16 @@
 syntax = "proto3";
 
 package parserpb;
-option go_package = "github.com/yoheimuta/apis/v1/parser/parserpb";
+option go_package = "github.com/thought-machine/apis/v1/parser/parserpb";
 
 import "google/protobuf/empty.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 import "google/protobuf/timestamp.proto";
 
-import "github.com/yoheimuta/apis/v1/entities/entities.proto";
-import "github.com/yoheimuta/apis/v1/entities/aggregates.proto";
-import "github.com/yoheimuta/apis/v1/values/itemContentCondition.proto";
-import "github.com/yoheimuta/apis/v1/values/itemNoContentCondition.proto";
+import "github.com/thought-machine/apis/v1/entities/entities.proto";
+import "github.com/thought-machine/apis/v1/entities/aggregates.proto";
+import "github.com/thought-machine/apis/v1/values/itemContentCondition.proto";
+import "github.com/thought-machine/apis/v1/values/itemNoContentCondition.proto";
 
 // ItemService is a service to manage items.
 service ItemService {

@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/yoheimuta/go-protoparser/internal/lexer"
+	"github.com/thought-machine/go-protoparser/internal/lexer"
 )
 
 func TestLexer2_ReadEnumType(t *testing.T) {

@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/yoheimuta/go-protoparser/interpret/unordered"
-	"github.com/yoheimuta/go-protoparser/parser"
+	"github.com/thought-machine/go-protoparser/interpret/unordered"
+	"github.com/thought-machine/go-protoparser/parser"
 )
 
 func TestInterpretProto(t *testing.T) {

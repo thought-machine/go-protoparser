@@ -1,8 +1,8 @@
 package parser
 
 import (
-	"github.com/yoheimuta/go-protoparser/internal/lexer/scanner"
-	"github.com/yoheimuta/go-protoparser/parser/meta"
+	"github.com/thought-machine/go-protoparser/internal/lexer/scanner"
+	"github.com/thought-machine/go-protoparser/parser/meta"
 )
 
 // OneofField is a constituent field of oneof.

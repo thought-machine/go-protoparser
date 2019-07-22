@@ -1,6 +1,6 @@
 package meta
 
-import "github.com/yoheimuta/go-protoparser/internal/lexer/scanner"
+import "github.com/thought-machine/go-protoparser/internal/lexer/scanner"
 
 // Meta represents a meta information about the parsed element.
 type Meta struct {
