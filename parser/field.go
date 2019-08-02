@@ -1,6 +1,8 @@
 package parser
 
 import (
+	"strings"
+
 	"github.com/thought-machine/go-protoparser/internal/lexer/scanner"
 	"github.com/thought-machine/go-protoparser/parser/meta"
 )
@@ -210,10 +212,13 @@ func (p *Parser) parseGoProtoValidatorFieldOptionConstant() (string, error) {
 
 		switch p.lex.Peek() {
 		case scanner.TLEFTSQUARE:
-			_, opsErr := p.parseConstList()
-			if opsErr != nil {
-				return "", opsErr
+			consts, constsErr := p.parseConstList()
+			if constsErr != nil {
+				return "", constsErr
 			}
+			ret += "["
+			ret += strings.Join(consts, " ")
+			ret += "]"
 		default:
 			constant, _, err := p.lex.ReadConstant()
 			if err != nil {
