@@ -41,7 +41,7 @@ func (o *Option) Accept(v Visitor) {
 // CloudEndpoint struct
 type CloudEndpoint struct {
 	Fields            []*FieldOption
-	AdditionalBinding []*AdditionalBindingField
+	AdditionalBinding []*AdditionalBinding
 }
 
 // ParseOption parses the option.
@@ -108,7 +108,7 @@ func (p *Parser) parseCloudEndpointsOptionConstant() (*CloudEndpoint, error) {
 		return nil, p.unexpected("{")
 	}
 	var endpointFields []*FieldOption
-	var addBinding []*AdditionalBindingField
+	var addBinding []*AdditionalBinding
 
 	for {
 		p.lex.NextKeyword()
@@ -199,20 +199,20 @@ func (p *Parser) parseOptionName() (string, error) {
 	return optionName, nil
 }
 
-// AdditionalBindingField store additional binding field details
-type AdditionalBindingField struct {
+// AdditionalBinding store additional binding field details
+type AdditionalBinding struct {
 	name   string
 	values []string
 }
 
 // ParseAdditionalBindings parses a block describing additional bindings
-func (p *Parser) ParseAdditionalBindings() ([]*AdditionalBindingField, error) {
+func (p *Parser) ParseAdditionalBindings() ([]*AdditionalBinding, error) {
 	p.lex.Next()
 	if p.lex.Token != scanner.TLEFTCURLY {
 		return nil, p.unexpected("{")
 	}
 
-	var bindings []*AdditionalBindingField
+	var bindings []*AdditionalBinding
 
 	for {
 		ident, _, identErr := p.lex.ReadFullIdent()
@@ -246,7 +246,7 @@ func (p *Parser) ParseAdditionalBindings() ([]*AdditionalBindingField, error) {
 			values = append(values, p.lex.Text)
 		}
 
-		bindings = append(bindings, &AdditionalBindingField{
+		bindings = append(bindings, &AdditionalBinding{
 			name:   ident,
 			values: values,
 		})
