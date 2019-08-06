@@ -199,7 +199,7 @@ service SearchService {
 						Options: []*parser.Option{
 							{
 								OptionName: "(my_option).a",
-							Constant:   "true",
+								Constant:   "true",
 								Meta: meta.Meta{
 									Pos: meta.Position{
 										Offset: 83,

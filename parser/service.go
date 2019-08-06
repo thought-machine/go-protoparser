@@ -238,7 +238,6 @@ func (p *Parser) parseRPC() (*RPC, error) {
 	default:
 		return nil, p.unexpected("{ or ;")
 	}
-	//p.parseTrailingSemis()
 	return &RPC{
 		RPCName:     rpcName,
 		RPCRequest:  rpcRequest,
