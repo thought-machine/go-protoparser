@@ -40,8 +40,15 @@ func (o *Option) Accept(v Visitor) {
 
 // CloudEndpoint struct
 type CloudEndpoint struct {
-	Fields            []*FieldOption
+	Fields            []*EndpointFieldOption
 	AdditionalBinding []*AdditionalBinding
+}
+
+//EndpointFieldOption struct
+type EndpointFieldOption struct {
+	OptionName string
+	Constant   string
+	Meta       meta.Meta
 }
 
 // ParseOption parses the option.
@@ -107,7 +114,7 @@ func (p *Parser) parseCloudEndpointsOptionConstant() (*CloudEndpoint, error) {
 	if p.lex.Token != scanner.TLEFTCURLY {
 		return nil, p.unexpected("{")
 	}
-	var endpointFields []*FieldOption
+	var endpointFields []*EndpointFieldOption
 	var addBinding []*AdditionalBinding
 
 	for {
@@ -121,7 +128,7 @@ func (p *Parser) parseCloudEndpointsOptionConstant() (*CloudEndpoint, error) {
 		} else {
 			p.lex.UnNext()
 			p.lex.Next()
-
+			pos := p.lex.Pos
 			if p.lex.Token != scanner.TIDENT {
 				return nil, p.unexpected("ident")
 			}
@@ -137,9 +144,10 @@ func (p *Parser) parseCloudEndpointsOptionConstant() (*CloudEndpoint, error) {
 			if err != nil {
 				return nil, err
 			}
-			endpointFields = append(endpointFields, &FieldOption{
+			endpointFields = append(endpointFields, &EndpointFieldOption{
 				OptionName: ident,
 				Constant:   constant,
+				Meta:       meta.NewMeta(pos),
 			})
 		}
 
