@@ -5,10 +5,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/yoheimuta/go-protoparser/internal/lexer"
-	"github.com/yoheimuta/go-protoparser/internal/util_test"
-	"github.com/yoheimuta/go-protoparser/parser"
-	"github.com/yoheimuta/go-protoparser/parser/meta"
+	"github.com/thought-machine/go-protoparser/internal/lexer"
+	"github.com/thought-machine/go-protoparser/internal/util_test"
+	"github.com/thought-machine/go-protoparser/parser"
+	"github.com/thought-machine/go-protoparser/parser/meta"
 )
 
 func TestParser_ParseEnum(t *testing.T) {
@@ -54,6 +54,11 @@ func TestParser_ParseEnum(t *testing.T) {
 								Offset: 27,
 								Line:   2,
 								Column: 3,
+							},
+							LastPos: meta.Position{
+								Offset: 52,
+								Line:   2,
+								Column: 28,
 							},
 						},
 					},
@@ -189,6 +194,11 @@ func TestParser_ParseEnum(t *testing.T) {
 								Line:   3,
 								Column: 3,
 							},
+							LastPos: meta.Position{
+								Offset: 64,
+								Line:   3,
+								Column: 28,
+							},
 						},
 					},
 					&parser.EnumField{
@@ -258,6 +268,11 @@ func TestParser_ParseEnum(t *testing.T) {
 								Line:   2,
 								Column: 3,
 							},
+							LastPos: meta.Position{
+								Offset: 76,
+								Line:   2,
+								Column: 28,
+							},
 						},
 					},
 					&parser.EnumField{
@@ -325,6 +340,11 @@ func TestParser_ParseEnum(t *testing.T) {
 								Line:   2,
 								Column: 3,
 							},
+							LastPos: meta.Position{
+								Offset: 52,
+								Line:   2,
+								Column: 28,
+							},
 						},
 					},
 				},
@@ -363,6 +383,11 @@ func TestParser_ParseEnum(t *testing.T) {
 								Line:   2,
 								Column: 3,
 							},
+							LastPos: meta.Position{
+								Offset: 52,
+								Line:   2,
+								Column: 28,
+							},
 						},
 					},
 					&parser.Comment{
@@ -394,6 +419,103 @@ func TestParser_ParseEnum(t *testing.T) {
 					},
 					LastPos: meta.Position{
 						Offset: 106,
+						Line:   5,
+						Column: 1,
+					},
+				},
+			},
+		},
+		{
+			name: "Enum with reserved field",
+			input: `enum EnumReserved {
+  reserved 1, 2, 5 to 8;
+}
+`,
+			wantEnum: &parser.Enum{
+				EnumName: "EnumReserved",
+				EnumBody: []parser.Visitee{
+					&parser.Reserved{
+						Ranges: []*parser.Range{
+							{
+								Begin: "1",
+							},
+							{
+								Begin: "2",
+							},
+							{
+								Begin: "5",
+								End:   "8",
+							},
+						},
+						Meta: meta.Meta{
+							Pos: meta.Position{
+								Offset: 22,
+								Line:   2,
+								Column: 3,
+							},
+							LastPos: meta.Position{
+								Offset: 0,
+								Line:   0,
+								Column: 0,
+							},
+						},
+					},
+				},
+				Meta: meta.Meta{
+					Pos: meta.Position{
+						Offset: 0,
+						Line:   1,
+						Column: 1,
+					},
+					LastPos: meta.Position{
+						Offset: 45,
+						Line:   3,
+						Column: 1,
+					},
+				},
+			},
+		},
+		{
+			name: "Enum with complex option field",
+			input: `enum RestrictionType {
+    RESTRICTION_TYPE_UNKNOWN_TYPE = 0 [(restriction_type_descriptor) = {
+        required_parameters: ["Hello", "World"],
+    }];
+}
+`,
+			wantEnum: &parser.Enum{
+				EnumName: "RestrictionType",
+				EnumBody: []parser.Visitee{
+					&parser.EnumField{
+						Ident:  "RESTRICTION_TYPE_UNKNOWN_TYPE",
+						Number: "0",
+						EnumValueOptions: []*parser.EnumValueOption{
+							{
+								OptionName: "(restriction_type_descriptor)",
+							},
+						},
+						Meta: meta.Meta{
+							Pos: meta.Position{
+								Offset: 27,
+								Line:   2,
+								Column: 5,
+							},
+							LastPos: meta.Position{
+								Offset: 0,
+								Line:   0,
+								Column: 0,
+							},
+						},
+					},
+				},
+				Meta: meta.Meta{
+					Pos: meta.Position{
+						Offset: 0,
+						Line:   1,
+						Column: 1,
+					},
+					LastPos: meta.Position{
+						Offset: 153,
 						Line:   5,
 						Column: 1,
 					},

@@ -3,8 +3,8 @@ package parser
 import (
 	"fmt"
 
-	"github.com/yoheimuta/go-protoparser/internal/lexer/scanner"
-	"github.com/yoheimuta/go-protoparser/parser/meta"
+	"github.com/thought-machine/go-protoparser/internal/lexer/scanner"
+	"github.com/thought-machine/go-protoparser/parser/meta"
 )
 
 type parseEnumBodyStatementErr struct {
@@ -177,6 +177,12 @@ func (p *Parser) parseEnumBody() (
 			}
 			option.Comments = comments
 			stmt = option
+		case scanner.TRESERVED:
+			reserved, err := p.ParseReserved()
+			if err != nil {
+				return nil, nil, scanner.Position{}, err
+			}
+			stmt = reserved
 		default:
 			enumField, enumFieldErr := p.parseEnumField()
 			if enumFieldErr == nil {
@@ -292,13 +298,24 @@ func (p *Parser) parseEnumValueOption() (*EnumValueOption, error) {
 		return nil, p.unexpected("=")
 	}
 
-	constant, _, err := p.lex.ReadConstant()
-	if err != nil {
-		return nil, err
+	switch p.lex.Peek() {
+	case scanner.TLEFTCURLY:
+		_, opsErr := p.parseGoProtoValidatorFieldOptionConstant()
+		if opsErr != nil {
+			return nil, opsErr
+		}
+	default:
+		constant, _, err := p.lex.ReadConstant()
+		if err != nil {
+			return nil, err
+		}
+		return &EnumValueOption{
+			OptionName: optionName,
+			Constant:   constant,
+		}, nil
 	}
-
 	return &EnumValueOption{
 		OptionName: optionName,
-		Constant:   constant,
+		Constant:   "",
 	}, nil
 }

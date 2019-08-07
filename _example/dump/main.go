@@ -8,7 +8,7 @@ import (
 
 	"path/filepath"
 
-	protoparser "github.com/yoheimuta/go-protoparser"
+	protoparser "github.com/thought-machine/go-protoparser"
 )
 
 var (

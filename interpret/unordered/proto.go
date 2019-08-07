@@ -3,7 +3,7 @@ package unordered
 import (
 	"fmt"
 
-	"github.com/yoheimuta/go-protoparser/parser"
+	"github.com/thought-machine/go-protoparser/parser"
 )
 
 // ProtoBody is unordered in nature, but each slice field preserves the original order.

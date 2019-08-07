@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/yoheimuta/go-protoparser/internal/lexer/scanner"
+	"github.com/thought-machine/go-protoparser/internal/lexer/scanner"
 )
 
 func TestScanner_Scan(t *testing.T) {

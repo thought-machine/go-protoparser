@@ -5,10 +5,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/yoheimuta/go-protoparser/internal/lexer"
-	"github.com/yoheimuta/go-protoparser/internal/util_test"
-	"github.com/yoheimuta/go-protoparser/parser"
-	"github.com/yoheimuta/go-protoparser/parser/meta"
+	"github.com/thought-machine/go-protoparser/internal/lexer"
+	"github.com/thought-machine/go-protoparser/internal/util_test"
+	"github.com/thought-machine/go-protoparser/parser"
+	"github.com/thought-machine/go-protoparser/parser/meta"
 )
 
 func TestParser_ParseMessage(t *testing.T) {
@@ -45,6 +45,11 @@ message Outer {
 								Offset: 19,
 								Line:   3,
 								Column: 3,
+							},
+							LastPos: meta.Position{
+								Offset: 46,
+								Line:   3,
+								Column: 30,
 							},
 						},
 					},
@@ -129,6 +134,11 @@ message outer {
 								Offset: 19,
 								Line:   3,
 								Column: 3,
+							},
+							LastPos: meta.Position{
+								Offset: 46,
+								Line:   3,
+								Column: 30,
 							},
 						},
 					},
@@ -288,6 +298,11 @@ message outer {
 								Line:   4,
 								Column: 3,
 							},
+							LastPos: meta.Position{
+								Offset: 58,
+								Line:   4,
+								Column: 30,
+							},
 						},
 					},
 					&parser.Message{
@@ -377,6 +392,11 @@ message outer {
 										Offset: 216,
 										Line:   13,
 										Column: 5,
+									},
+									LastPos: meta.Position{
+										Offset: 241,
+										Line:   13,
+										Column: 30,
 									},
 								},
 							},
@@ -617,6 +637,11 @@ message SearchRequest {
 										Offset: 206,
 										Line:   7,
 										Column: 5,
+									},
+									LastPos: meta.Position{
+										Offset: 231,
+										Line:   7,
+										Column: 30,
 									},
 								},
 							},

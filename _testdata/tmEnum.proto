@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+enum RestrictionType {
+    // An unknown restriction type.
+    RESTRICTION_TYPE_UNKNOWN_TYPE = 0 [(restriction_type_descriptor) = {
+        required_parameters: [],
+    }];
+}

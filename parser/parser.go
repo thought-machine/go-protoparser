@@ -1,6 +1,6 @@
 package parser
 
-import "github.com/yoheimuta/go-protoparser/internal/lexer"
+import "github.com/thought-machine/go-protoparser/internal/lexer"
 
 // Parser is a parser.
 type Parser struct {

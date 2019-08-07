@@ -55,6 +55,7 @@ const (
 	TRESERVED
 	TENUM
 	TSTREAM
+	TADDITIONAL
 )
 
 func asMiscToken(ch rune) Token {
@@ -83,23 +84,24 @@ func asMiscToken(ch rune) Token {
 
 func asKeywordToken(st string) Token {
 	m := map[string]Token{
-		"syntax":   TSYNTAX,
-		"service":  TSERVICE,
-		"rpc":      TRPC,
-		"returns":  TRETURNS,
-		"message":  TMESSAGE,
-		"extend":   TEXTEND,
-		"import":   TIMPORT,
-		"package":  TPACKAGE,
-		"option":   TOPTION,
-		"repeated": TREPEATED,
-		"weak":     TWEAK,
-		"public":   TPUBLIC,
-		"oneof":    TONEOF,
-		"map":      TMAP,
-		"reserved": TRESERVED,
-		"enum":     TENUM,
-		"stream":   TSTREAM,
+		"syntax":              TSYNTAX,
+		"service":             TSERVICE,
+		"rpc":                 TRPC,
+		"returns":             TRETURNS,
+		"message":             TMESSAGE,
+		"extend":              TEXTEND,
+		"import":              TIMPORT,
+		"package":             TPACKAGE,
+		"option":              TOPTION,
+		"repeated":            TREPEATED,
+		"weak":                TWEAK,
+		"public":              TPUBLIC,
+		"oneof":               TONEOF,
+		"map":                 TMAP,
+		"reserved":            TRESERVED,
+		"enum":                TENUM,
+		"stream":              TSTREAM,
+		"additional_bindings": TADDITIONAL,
 	}
 
 	if t, ok := m[st]; ok {

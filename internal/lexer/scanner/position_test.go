@@ -3,7 +3,7 @@ package scanner_test
 import (
 	"testing"
 
-	"github.com/yoheimuta/go-protoparser/internal/lexer/scanner"
+	"github.com/thought-machine/go-protoparser/internal/lexer/scanner"
 )
 
 func TestPosition_Advance(t *testing.T) {

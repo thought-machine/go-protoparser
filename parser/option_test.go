@@ -5,9 +5,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/yoheimuta/go-protoparser/internal/lexer"
-	"github.com/yoheimuta/go-protoparser/parser"
-	"github.com/yoheimuta/go-protoparser/parser/meta"
+	"github.com/thought-machine/go-protoparser/internal/lexer"
+	"github.com/thought-machine/go-protoparser/internal/util_test"
+	"github.com/thought-machine/go-protoparser/parser"
+	"github.com/thought-machine/go-protoparser/parser/meta"
 )
 
 func TestParser_ParseOption(t *testing.T) {
@@ -49,6 +50,11 @@ func TestParser_ParseOption(t *testing.T) {
 						Line:   1,
 						Column: 1,
 					},
+					LastPos: meta.Position{
+						Offset: 39,
+						Line:   1,
+						Column: 40,
+					},
 				},
 			},
 		},
@@ -63,6 +69,11 @@ func TestParser_ParseOption(t *testing.T) {
 						Offset: 0,
 						Line:   1,
 						Column: 1,
+					},
+					LastPos: meta.Position{
+						Offset: 27,
+						Line:   1,
+						Column: 28,
 					},
 				},
 			},
@@ -79,6 +90,11 @@ func TestParser_ParseOption(t *testing.T) {
 						Line:   1,
 						Column: 1,
 					},
+					LastPos: meta.Position{
+						Offset: 47,
+						Line:   1,
+						Column: 48,
+					},
 				},
 			},
 		},
@@ -92,13 +108,29 @@ option (google.api.http) = {
 			permissive: true,
 			wantOption: &parser.Option{
 				OptionName: "(google.api.http)",
-				Constant: `{get:"/v1/projects/{project_id}/aggregated/addresses"
-rest_collection:"projects.addresses"}`,
+				Constant:   "",
+				Endpoint: &parser.CloudEndpoint{
+					Fields: []*parser.FieldOption{
+						{
+							OptionName: "get",
+							Constant:   `"/v1/projects/{project_id}/aggregated/addresses"`,
+						},
+						{
+							OptionName: "rest_collection",
+							Constant:   `"projects.addresses"`,
+						},
+					},
+				},
 				Meta: meta.Meta{
 					Pos: meta.Position{
 						Offset: 1,
 						Line:   2,
 						Column: 1,
+					},
+					LastPos: meta.Position{
+						Offset: 131,
+						Line:   5,
+						Column: 2,
 					},
 				},
 			},
@@ -114,12 +146,33 @@ option (google.api.http) = {
 			permissive: true,
 			wantOption: &parser.Option{
 				OptionName: "(google.api.http)",
-				Constant:   `{post:"/v1/resources",body:"resource",rest_method_name:"insert"}`,
+				Constant:   "",
+				Endpoint: &parser.CloudEndpoint{
+					Fields: []*parser.FieldOption{
+						{
+							OptionName: "post",
+							Constant:   "\"/v1/resources\"",
+						},
+						{
+							OptionName: "body",
+							Constant:   "\"resource\"",
+						},
+						{
+							OptionName: "rest_method_name",
+							Constant:   "\"insert\"",
+						},
+					},
+				},
 				Meta: meta.Meta{
 					Pos: meta.Position{
 						Offset: 1,
 						Line:   2,
 						Column: 1,
+					},
+					LastPos: meta.Position{
+						Offset: 111,
+						Line:   6,
+						Column: 2,
 					},
 				},
 			},
@@ -143,7 +196,7 @@ option (google.api.http) = {
 			}
 
 			if !reflect.DeepEqual(got, test.wantOption) {
-				t.Errorf("got %v, but want %v", got, test.wantOption)
+				t.Errorf("got %v, but want %v", util_test.PrettyFormat(got), util_test.PrettyFormat(test.wantOption))
 			}
 
 			if !p.IsEOF() {

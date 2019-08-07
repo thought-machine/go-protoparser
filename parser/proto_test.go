@@ -5,10 +5,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/yoheimuta/go-protoparser/internal/lexer"
-	"github.com/yoheimuta/go-protoparser/internal/util_test"
-	"github.com/yoheimuta/go-protoparser/parser"
-	"github.com/yoheimuta/go-protoparser/parser/meta"
+	"github.com/thought-machine/go-protoparser/internal/lexer"
+	"github.com/thought-machine/go-protoparser/internal/util_test"
+	"github.com/thought-machine/go-protoparser/parser"
+	"github.com/thought-machine/go-protoparser/parser/meta"
 )
 
 func TestParser_ParseProto(t *testing.T) {
@@ -82,6 +82,12 @@ message outer {
 								Line:     4,
 								Column:   1,
 							},
+							LastPos: meta.Position{
+								Filename: "official.proto",
+								Offset:   88,
+								Line:     4,
+								Column:   40,
+							},
 						},
 					},
 					&parser.Enum{
@@ -96,6 +102,12 @@ message outer {
 										Offset:   117,
 										Line:     6,
 										Column:   3,
+									},
+									LastPos: meta.Position{
+										Filename: "official.proto",
+										Offset:   142,
+										Line:     6,
+										Column:   28,
 									},
 								},
 							},
@@ -169,6 +181,12 @@ message outer {
 										Offset:   243,
 										Line:     12,
 										Column:   3,
+									},
+									LastPos: meta.Position{
+										Filename: "official.proto",
+										Offset:   270,
+										Line:     12,
+										Column:   30,
 									},
 								},
 							},
@@ -491,6 +509,12 @@ syntax2
 								Line:     12,
 								Column:   1,
 							},
+							LastPos: meta.Position{
+								Filename: "comments.proto",
+								Offset:   163,
+								Line:     12,
+								Column:   40,
+							},
 						},
 					},
 					&parser.Message{
@@ -535,6 +559,12 @@ syntax2
 										Offset:   229,
 										Line:     18,
 										Column:   3,
+									},
+									LastPos: meta.Position{
+										Filename: "comments.proto",
+										Offset:   254,
+										Line:     18,
+										Column:   28,
 									},
 								},
 							},
@@ -751,6 +781,12 @@ service SearchService {
 								Line:     5,
 								Column:   1,
 							},
+							LastPos: meta.Position{
+								Filename: "inlineComments.proto",
+								Offset:   139,
+								Line:     5,
+								Column:   40,
+							},
 						},
 					},
 					&parser.Message{
@@ -793,6 +829,12 @@ service SearchService {
 										Offset:   207,
 										Line:     9,
 										Column:   3,
+									},
+									LastPos: meta.Position{
+										Filename: "inlineComments.proto",
+										Offset:   232,
+										Line:     9,
+										Column:   28,
 									},
 								},
 							},

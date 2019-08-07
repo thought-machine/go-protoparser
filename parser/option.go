@@ -1,14 +1,15 @@
 package parser
 
 import (
-	"github.com/yoheimuta/go-protoparser/internal/lexer/scanner"
-	"github.com/yoheimuta/go-protoparser/parser/meta"
+	"github.com/thought-machine/go-protoparser/internal/lexer/scanner"
+	"github.com/thought-machine/go-protoparser/parser/meta"
 )
 
 // Option can be used in proto files, messages, enums and services.
 type Option struct {
 	OptionName string
 	Constant   string
+	Endpoint   *CloudEndpoint
 
 	// Comments are the optional ones placed at the beginning.
 	Comments []*Comment
@@ -37,6 +38,12 @@ func (o *Option) Accept(v Visitor) {
 	}
 }
 
+// CloudEndpoint struct
+type CloudEndpoint struct {
+	Fields            []*FieldOption
+	AdditionalBinding []*AdditionalBinding
+}
+
 // ParseOption parses the option.
 //  option = "option" optionName  "=" constant ";"
 //
@@ -59,6 +66,7 @@ func (p *Parser) ParseOption() (*Option, error) {
 	}
 
 	var constant string
+	var endpoint *CloudEndpoint
 	switch p.lex.Peek() {
 	// Cloud Endpoints requires this exception.
 	case scanner.TLEFTCURLY:
@@ -66,7 +74,7 @@ func (p *Parser) ParseOption() (*Option, error) {
 			return nil, p.unexpected("constant or permissive mode")
 		}
 
-		constant, err = p.parseCloudEndpointsOptionConstant()
+		endpoint, err = p.parseCloudEndpointsOptionConstant()
 		if err != nil {
 			return nil, err
 		}
@@ -85,50 +93,65 @@ func (p *Parser) ParseOption() (*Option, error) {
 	return &Option{
 		OptionName: optionName,
 		Constant:   constant,
-		Meta:       meta.NewMeta(startPos),
+		Endpoint:   endpoint,
+		Meta:       meta.NewMetaWithLastPos(startPos, p.lex.Pos),
 	}, nil
 }
 
 // cloudEndpointsOptionConstant = "{" ident ":" constant { [","] ident ":" constant } "}"
 //
 // See https://cloud.google.com/endpoints/docs/grpc-service-config/reference/rpc/google.api
-func (p *Parser) parseCloudEndpointsOptionConstant() (string, error) {
-	var ret string
+func (p *Parser) parseCloudEndpointsOptionConstant() (*CloudEndpoint, error) {
 
 	p.lex.Next()
 	if p.lex.Token != scanner.TLEFTCURLY {
-		return "", p.unexpected("{")
+		return nil, p.unexpected("{")
 	}
-	ret += p.lex.Text
+	var endpointFields []*FieldOption
+	var addBinding []*AdditionalBinding
 
 	for {
-		p.lex.Next()
-		if p.lex.Token != scanner.TIDENT {
-			return "", p.unexpected("ident")
-		}
-		ret += p.lex.Text
+		p.lex.NextKeyword()
+		if p.lex.Token == scanner.TADDITIONAL {
+			var addErr error
+			addBinding, addErr = p.ParseAdditionalBindings()
+			if addErr != nil {
+				return nil, addErr
+			}
+		} else {
+			p.lex.UnNext()
+			p.lex.Next()
 
-		p.lex.Next()
-		if p.lex.Token != scanner.TCOLON {
-			return "", p.unexpected(":")
-		}
-		ret += p.lex.Text
+			if p.lex.Token != scanner.TIDENT {
+				return nil, p.unexpected("ident")
+			}
+			ident := p.lex.Text
 
-		constant, _, err := p.lex.ReadConstant()
-		if err != nil {
-			return "", err
+			p.lex.Next()
+
+			if p.lex.Token != scanner.TCOLON {
+				return nil, p.unexpected(":")
+			}
+
+			constant, _, err := p.lex.ReadConstant()
+			if err != nil {
+				return nil, err
+			}
+			endpointFields = append(endpointFields, &FieldOption{
+				OptionName: ident,
+				Constant:   constant,
+			})
 		}
-		ret += constant
 
 		p.lex.Next()
 		switch {
 		case p.lex.Token == scanner.TCOMMA:
-			ret += p.lex.Text
 		case p.lex.Token == scanner.TRIGHTCURLY:
-			ret += p.lex.Text
-			return ret, nil
+			return &CloudEndpoint{
+				Fields:            endpointFields,
+				AdditionalBinding: addBinding,
+			}, nil
 		default:
-			ret += "\n"
 			p.lex.UnNext()
 		}
 	}
@@ -174,4 +197,64 @@ func (p *Parser) parseOptionName() (string, error) {
 		optionName += p.lex.Text
 	}
 	return optionName, nil
+}
+
+// AdditionalBinding store additional binding field details
+type AdditionalBinding struct {
+	name   string
+	values []string
+}
+
+// ParseAdditionalBindings parses a block describing additional bindings
+func (p *Parser) ParseAdditionalBindings() ([]*AdditionalBinding, error) {
+	p.lex.Next()
+	if p.lex.Token != scanner.TLEFTCURLY {
+		return nil, p.unexpected("{")
+	}
+
+	var bindings []*AdditionalBinding
+
+	for {
+		ident, _, identErr := p.lex.ReadFullIdent()
+
+		if identErr != nil {
+			return nil, identErr
+		}
+
+		p.lex.Next()
+
+		if p.lex.Token != scanner.TCOLON {
+			return nil, p.unexpected(":")
+		}
+
+		var values []string
+
+		constVal, _, constErr := p.lex.ReadConstant()
+
+		if constErr != nil {
+			return nil, constErr
+		}
+
+		values = append(values, constVal)
+
+		for {
+			p.lex.NextLit()
+			if p.lex.Token != scanner.TSTRLIT {
+				p.lex.UnNext()
+				break
+			}
+			values = append(values, p.lex.Text)
+		}
+
+		bindings = append(bindings, &AdditionalBinding{
+			name:   ident,
+			values: values,
+		})
+
+		if p.lex.Peek() == scanner.TRIGHTCURLY {
+			p.lex.Next()
+			break
+		}
+	}
+	return nil, nil
 }

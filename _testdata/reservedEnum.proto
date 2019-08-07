@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+enum AccountStatus {
+    reserved 1, 2;
+    UNKNOWN_ACCOUNT_STATUS = 0;
+}

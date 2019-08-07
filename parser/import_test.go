@@ -5,9 +5,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/yoheimuta/go-protoparser/internal/lexer"
-	"github.com/yoheimuta/go-protoparser/parser"
-	"github.com/yoheimuta/go-protoparser/parser/meta"
+	"github.com/thought-machine/go-protoparser/internal/lexer"
+	"github.com/thought-machine/go-protoparser/parser"
+	"github.com/thought-machine/go-protoparser/parser/meta"
 )
 
 func TestParser_ParseImport(t *testing.T) {

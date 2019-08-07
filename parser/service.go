@@ -1,8 +1,8 @@
 package parser
 
 import (
-	"github.com/yoheimuta/go-protoparser/internal/lexer/scanner"
-	"github.com/yoheimuta/go-protoparser/parser/meta"
+	"github.com/thought-machine/go-protoparser/internal/lexer/scanner"
+	"github.com/thought-machine/go-protoparser/parser/meta"
 )
 
 // RPCRequest is a request of RPC.
@@ -185,6 +185,7 @@ func (p *Parser) parseServiceBody() (
 			if err != nil {
 				return nil, nil, scanner.Position{}, err
 			}
+			continue
 		}
 
 		p.MaybeScanInlineComment(stmt)
@@ -237,7 +238,6 @@ func (p *Parser) parseRPC() (*RPC, error) {
 	default:
 		return nil, p.unexpected("{ or ;")
 	}
-
 	return &RPC{
 		RPCName:     rpcName,
 		RPCRequest:  rpcRequest,
@@ -245,6 +245,15 @@ func (p *Parser) parseRPC() (*RPC, error) {
 		Options:     opts,
 		Meta:        meta.NewMetaWithLastPos(startPos, p.lex.Pos),
 	}, nil
+}
+
+func (p *Parser) parseTrailingSemis() {
+	for {
+		if p.lex.Peek() != scanner.TSEMICOLON {
+			break
+		}
+		p.lex.Next()
+	}
 }
 
 // rpcRequest = "(" [ "stream" ] messageType ")"
