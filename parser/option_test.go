@@ -110,14 +110,28 @@ option (google.api.http) = {
 				OptionName: "(google.api.http)",
 				Constant:   "",
 				Endpoint: &parser.CloudEndpoint{
-					Fields: []*parser.FieldOption{
+					Fields: []*parser.EndpointFieldOption{
 						{
 							OptionName: "get",
 							Constant:   `"/v1/projects/{project_id}/aggregated/addresses"`,
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 34,
+									Line:   3,
+									Column: 5,
+								},
+							},
 						},
 						{
 							OptionName: "rest_collection",
 							Constant:   `"projects.addresses"`,
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 92,
+									Line:   4,
+									Column: 5,
+								},
+							},
 						},
 					},
 				},
@@ -148,18 +162,39 @@ option (google.api.http) = {
 				OptionName: "(google.api.http)",
 				Constant:   "",
 				Endpoint: &parser.CloudEndpoint{
-					Fields: []*parser.FieldOption{
+					Fields: []*parser.EndpointFieldOption{
 						{
 							OptionName: "post",
 							Constant:   "\"/v1/resources\"",
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 34,
+									Line:   3,
+									Column: 5,
+								},
+							},
 						},
 						{
 							OptionName: "body",
 							Constant:   "\"resource\"",
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 61,
+									Line:   4,
+									Column: 5,
+								},
+							},
 						},
 						{
 							OptionName: "rest_method_name",
 							Constant:   "\"insert\"",
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 83,
+									Line:   5,
+									Column: 5,
+								},
+							},
 						},
 					},
 				},
