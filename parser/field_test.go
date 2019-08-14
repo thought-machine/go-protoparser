@@ -100,9 +100,27 @@ func TestParser_ParseField(t *testing.T) {
 			},
 		},
 		{
-			name:    "parsing an invalid fieldOption constant",
-			input:   "int64 display_order = 1 [(validator.field) = {int_gt: 0}];",
-			wantErr: true,
+			name:       "parsing deprecation syntax",
+			input:      "string my_field = 7 [(release.field)={notice_version:{major:1,minor:7},release_version:{major:3},change_type:FIELD_REMOVAL,description:\"This field's functionality is to be replaced by my_new_field\"}];",
+			permissive: true,
+			wantField: &parser.Field{
+				Type:        "string",
+				FieldName:   "my_field",
+				FieldNumber: "7",
+				FieldOptions: []*parser.FieldOption{
+					{
+						OptionName: "(release.field)",
+						Constant:   "{notice_version:{major:1,minor:7},release_version:{major:3},change_type:FIELD_REMOVAL,description:\"This field's functionality is to be replaced by my_new_field\"}",
+					},
+				},
+				Meta: meta.Meta{
+					Pos: meta.Position{
+						Offset: 0,
+						Line:   1,
+						Column: 1,
+					},
+				},
+			},
 		},
 		{
 			name:       "parsing fieldOption constant with { by permissive mode. Required by go-proto-validators",
