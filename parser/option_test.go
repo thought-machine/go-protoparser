@@ -222,8 +222,8 @@ option (release.method) = {
 		minor: 4
 	}
 	change_type: ADD_METHOD
-	description: "This new endpoint would list the timeseries for the parameters on a product version."
-	feature_flag: "KERN-39-list-product-version-parameters-timeseries"
+	description: "This is a description"
+	feature_flag: "Feature flag ID"
 };`,
 			wantOption: &parser.Option{
 				OptionName: "(release.method)",
@@ -254,7 +254,7 @@ option (release.method) = {
 						},
 						{
 							OptionName: "description",
-							Constant:   `"This new endpoint would list the timeseries for the parameters on a product version."`,
+							Constant:   `"This is a description"`,
 							Meta: meta.Meta{
 								Pos: meta.Position{
 									Offset: 100,
@@ -265,10 +265,10 @@ option (release.method) = {
 						},
 						{
 							OptionName: "feature_flag",
-							Constant:   `"KERN-39-list-product-version-parameters-timeseries"`,
+							Constant:   `"Feature flag ID"`,
 							Meta: meta.Meta{
 								Pos: meta.Position{
-									Offset: 201,
+									Offset: 138,
 									Line:   9,
 									Column: 2,
 								},
@@ -283,7 +283,7 @@ option (release.method) = {
 						Column: 1,
 					},
 					LastPos: meta.Position{
-						Offset: 269,
+						Offset: 171,
 						Line:   10,
 						Column: 2,
 					},
