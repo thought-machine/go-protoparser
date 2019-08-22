@@ -139,10 +139,18 @@ func (p *Parser) parseCloudEndpointsOptionConstant() (*CloudEndpoint, error) {
 			if p.lex.Token != scanner.TCOLON {
 				return nil, p.unexpected(":")
 			}
-
-			constant, _, err := p.lex.ReadConstant()
-			if err != nil {
-				return nil, err
+			var constant string
+			var err error
+			if p.lex.Peek() == scanner.TLEFTCURLY {
+				constant, err = p.parseGoProtoValidatorFieldOptionConstant()
+				if err != nil {
+					return nil, err
+				}
+			} else {
+				constant, _, err = p.lex.ReadConstant()
+				if err != nil {
+					return nil, err
+				}
 			}
 			endpointFields = append(endpointFields, &EndpointFieldOption{
 				OptionName: ident,

@@ -169,7 +169,7 @@ func (p *Parser) parseFieldOption() (*FieldOption, error) {
 		if !p.permissive {
 			return nil, p.unexpected("constant or permissive mode")
 		}
-		
+
 		constant, err = p.parseGoProtoValidatorFieldOptionConstant()
 		if err != nil {
 			return nil, err
@@ -246,6 +246,7 @@ func (p *Parser) parseGoProtoValidatorFieldOptionConstant() (string, error) {
 			ret += p.lex.Text
 			return ret, nil
 		default:
+			ret += ","
 			p.lex.UnNext()
 		}
 	}

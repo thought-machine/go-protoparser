@@ -212,6 +212,84 @@ option (google.api.http) = {
 				},
 			},
 		},
+		{
+			name:       "Parse deprecation syntax",
+			permissive: true,
+			input: `
+option (release.method) = {
+	release_version: {
+		major: 1
+		minor: 4
+	}
+	change_type: ADD_METHOD
+	description: "This new endpoint would list the timeseries for the parameters on a product version."
+	feature_flag: "KERN-39-list-product-version-parameters-timeseries"
+};`,
+			wantOption: &parser.Option{
+				OptionName: "(release.method)",
+				Constant:   "",
+				Endpoint: &parser.CloudEndpoint{
+					Fields: []*parser.EndpointFieldOption{
+						{
+							OptionName: "release_version",
+							Constant:   "{major:1,minor:4}",
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 30,
+									Line:   3,
+									Column: 2,
+								},
+							},
+						},
+						{
+							OptionName: "change_type",
+							Constant:   "ADD_METHOD",
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 75,
+									Line:   7,
+									Column: 2,
+								},
+							},
+						},
+						{
+							OptionName: "description",
+							Constant:   `"This new endpoint would list the timeseries for the parameters on a product version."`,
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 100,
+									Line:   8,
+									Column: 2,
+								},
+							},
+						},
+						{
+							OptionName: "feature_flag",
+							Constant:   `"KERN-39-list-product-version-parameters-timeseries"`,
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 201,
+									Line:   9,
+									Column: 2,
+								},
+							},
+						},
+					},
+				},
+				Meta: meta.Meta{
+					Pos: meta.Position{
+						Offset: 1,
+						Line:   2,
+						Column: 1,
+					},
+					LastPos: meta.Position{
+						Offset: 269,
+						Line:   10,
+						Column: 2,
+					},
+				},
+			},
+		},
 	}
 
 	for _, test := range tests {
