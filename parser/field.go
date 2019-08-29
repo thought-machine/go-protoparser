@@ -197,6 +197,11 @@ func (p *Parser) parseGoProtoValidatorFieldOptionConstant() (string, error) {
 	}
 	ret += p.lex.Text
 
+	if p.lex.Peek() == scanner.TRIGHTCURLY {
+		p.lex.Next()
+		return "{}", nil
+	}
+
 	for {
 		p.lex.Next()
 		if p.lex.Token != scanner.TIDENT {
