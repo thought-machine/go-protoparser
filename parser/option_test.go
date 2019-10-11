@@ -224,12 +224,54 @@ option (google.api.http) = {
 			permissive: true,
 			wantOption: &parser.Option{
 				OptionName: "(google.api.http)",
-				Constant:   `{post:"/v1/resources",body:"resource",rest_method_name:"insert"}`,
+				Constant:   "",
+				Endpoint: &parser.CloudEndpoint{
+					Fields: []*parser.EndpointFieldOption{
+						{
+							OptionName: "post",
+							Constant:   "\"/v1/resources\"",
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 34,
+									Line:   3,
+									Column: 5,
+								},
+							},
+						},
+						{
+							OptionName: "body",
+							Constant:   "\"resource\"",
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 61,
+									Line:   4,
+									Column: 5,
+								},
+							},
+						},
+						{
+							OptionName: "rest_method_name",
+							Constant:   "\"insert\"",
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 94,
+									Line:   6,
+									Column: 5,
+								},
+							},
+						},
+					},
+				},
 				Meta: meta.Meta{
 					Pos: meta.Position{
 						Offset: 1,
 						Line:   2,
 						Column: 1,
+					},
+					LastPos: meta.Position{
+						Offset: 122,
+						Line:   7,
+						Column: 2,
 					},
 				},
 			},

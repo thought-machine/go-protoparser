@@ -1,0 +1,432 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Accept	parser/comment.go	/^func (c *Comment) Accept(v Visitor) {$/;"	f
+Accept	parser/emptyStatement.go	/^func (e *EmptyStatement) Accept(v Visitor) {$/;"	f
+Accept	parser/enum.go	/^func (e *Enum) Accept(v Visitor) {$/;"	f
+Accept	parser/enum.go	/^func (f *EnumField) Accept(v Visitor) {$/;"	f
+Accept	parser/extend.go	/^func (m *Extend) Accept(v Visitor) {$/;"	f
+Accept	parser/field.go	/^func (f *Field) Accept(v Visitor) {$/;"	f
+Accept	parser/import.go	/^func (i *Import) Accept(v Visitor) {$/;"	f
+Accept	parser/mapField.go	/^func (m *MapField) Accept(v Visitor) {$/;"	f
+Accept	parser/message.go	/^func (m *Message) Accept(v Visitor) {$/;"	f
+Accept	parser/oneof.go	/^func (f *OneofField) Accept(v Visitor) {$/;"	f
+Accept	parser/oneof.go	/^func (o *Oneof) Accept(v Visitor) {$/;"	f
+Accept	parser/option.go	/^func (o *Option) Accept(v Visitor) {$/;"	f
+Accept	parser/package.go	/^func (p *Package) Accept(v Visitor) {$/;"	f
+Accept	parser/proto.go	/^func (p *Proto) Accept(v Visitor) {$/;"	f
+Accept	parser/reserved.go	/^func (r *Reserved) Accept(v Visitor) {$/;"	f
+Accept	parser/service.go	/^func (r *RPC) Accept(v Visitor) {$/;"	f
+Accept	parser/service.go	/^func (s *Service) Accept(v Visitor) {$/;"	f
+Accept	parser/syntax.go	/^func (s *Syntax) Accept(v Visitor) {$/;"	f
+AdditionalBinding	parser/option.go	/^type AdditionalBinding struct {$/;"	t
+Advance	internal/lexer/scanner/position.go	/^func (pos *Position) Advance(r rune) {$/;"	f
+CloudEndpoint	parser/option.go	/^type CloudEndpoint struct {$/;"	t
+Comment	parser/comment.go	/^type Comment struct {$/;"	t
+ConfigOption	parser/parser.go	/^type ConfigOption func(*Parser)$/;"	t
+EmptyStatement	parser/emptyStatement.go	/^type EmptyStatement struct {$/;"	t
+EndpointFieldOption	parser/option.go	/^type EndpointFieldOption struct {$/;"	t
+Enum	interpret/unordered/enum.go	/^type Enum struct {$/;"	t
+Enum	parser/enum.go	/^type Enum struct {$/;"	t
+EnumBody	interpret/unordered/enum.go	/^type EnumBody struct {$/;"	t
+EnumField	parser/enum.go	/^type EnumField struct {$/;"	t
+EnumValueOption	parser/enum.go	/^type EnumValueOption struct {$/;"	t
+Error	parser/enum.go	/^func (e *parseEnumBodyStatementErr) Error() string {$/;"	f
+Error	parser/extend.go	/^func (e *parseExtendBodyStatementErr) Error() string {$/;"	f
+Error	parser/message.go	/^func (e *parseMessageBodyStatementErr) Error() string {$/;"	f
+Error	parser/reserved.go	/^func (e *parseReservedErr) Error() string {$/;"	f
+Extend	interpret/unordered/extend.go	/^type Extend struct {$/;"	t
+Extend	parser/extend.go	/^type Extend struct {$/;"	t
+ExtendBody	interpret/unordered/extend.go	/^type ExtendBody struct {$/;"	t
+Field	parser/field.go	/^type Field struct {$/;"	t
+FieldOption	parser/field.go	/^type FieldOption struct {$/;"	t
+HasInlineCommentSetter	parser/inlineComment.go	/^type HasInlineCommentSetter interface {$/;"	t
+Import	parser/import.go	/^type Import struct {$/;"	t
+ImportModifier	parser/import.go	/^type ImportModifier uint$/;"	t
+ImportModifierNone	parser/import.go	/^	ImportModifierNone ImportModifier = iota$/;"	c
+ImportModifierPublic	parser/import.go	/^	ImportModifierPublic$/;"	c
+ImportModifierWeak	parser/import.go	/^	ImportModifierWeak$/;"	c
+InterpretEnum	interpret/unordered/enum.go	/^func InterpretEnum(src *parser.Enum) (*Enum, error) {$/;"	f
+InterpretExtend	interpret/unordered/extend.go	/^func InterpretExtend(src *parser.Extend) (*Extend, error) {$/;"	f
+InterpretMessage	interpret/unordered/message.go	/^func InterpretMessage(src *parser.Message) (*Message, error) {$/;"	f
+InterpretProto	interpret/unordered/proto.go	/^func InterpretProto(src *parser.Proto) (*Proto, error) {$/;"	f
+InterpretService	interpret/unordered/service.go	/^func InterpretService(src *parser.Service) (*Service, error) {$/;"	f
+IsCStyle	parser/comment.go	/^func (c *Comment) IsCStyle() bool {$/;"	f
+IsEOF	internal/lexer/lexer.go	/^func (lex *Lexer) IsEOF() bool {$/;"	f
+IsEOF	parser/parser.go	/^func (p *Parser) IsEOF() bool {$/;"	f
+LatestErr	internal/lexer/lexer.go	/^func (lex *Lexer) LatestErr() error {$/;"	f
+Lexer	internal/lexer/lexer.go	/^type Lexer struct {$/;"	t
+Lines	parser/comment.go	/^func (c *Comment) Lines() []string {$/;"	f
+MapField	parser/mapField.go	/^type MapField struct {$/;"	t
+MaybeScanInlineComment	parser/inlineComment.go	/^func (p *Parser) MaybeScanInlineComment($/;"	f
+Message	interpret/unordered/message.go	/^type Message struct {$/;"	t
+Message	parser/message.go	/^type Message struct {$/;"	t
+MessageBody	interpret/unordered/message.go	/^type MessageBody struct {$/;"	t
+Meta	parser/meta/meta.go	/^type Meta struct {$/;"	t
+Mode	internal/lexer/scanner/mode.go	/^type Mode uint$/;"	t
+NewLexer	internal/lexer/lexer.go	/^func NewLexer(input io.Reader, opts ...Option) *Lexer {$/;"	f
+NewMeta	parser/meta/meta.go	/^func NewMeta(fromPos scanner.Position) Meta {$/;"	f
+NewMetaWithLastPos	parser/meta/meta.go	/^func NewMetaWithLastPos($/;"	f
+NewParser	parser/parser.go	/^func NewParser(lex *lexer.Lexer, opts ...ConfigOption) *Parser {$/;"	f
+NewPosition	internal/lexer/scanner/position.go	/^func NewPosition() *Position {$/;"	f
+NewPosition	parser/meta/position.go	/^func NewPosition(from scanner.Position) Position {$/;"	f
+NewScanner	internal/lexer/scanner/scanner.go	/^func NewScanner(r io.Reader, opts ...Option) *Scanner {$/;"	f
+Next	internal/lexer/lexer.go	/^func (lex *Lexer) Next() {$/;"	f
+NextComment	internal/lexer/lexer.go	/^func (lex *Lexer) NextComment() {$/;"	f
+NextKeyword	internal/lexer/lexer.go	/^func (lex *Lexer) NextKeyword() {$/;"	f
+NextKeywordOrStrLit	internal/lexer/lexer.go	/^func (lex *Lexer) NextKeywordOrStrLit() {$/;"	f
+NextLit	internal/lexer/lexer.go	/^func (lex *Lexer) NextLit() {$/;"	f
+NextNumberLit	internal/lexer/lexer.go	/^func (lex *Lexer) NextNumberLit() {$/;"	f
+NextStrLit	internal/lexer/lexer.go	/^func (lex *Lexer) NextStrLit() {$/;"	f
+Oneof	parser/oneof.go	/^type Oneof struct {$/;"	t
+OneofField	parser/oneof.go	/^type OneofField struct {$/;"	t
+Option	internal/lexer/lexer.go	/^type Option func(*Lexer)$/;"	t
+Option	internal/lexer/scanner/scanner.go	/^type Option func(*Scanner)$/;"	t
+Option	parser/option.go	/^type Option struct {$/;"	t
+Option	protoparser.go	/^type Option func(*ParseConfig)$/;"	t
+Package	parser/package.go	/^type Package struct {$/;"	t
+Parse	protoparser.go	/^func Parse(input io.Reader, options ...Option) (*parser.Proto, error) {$/;"	f
+ParseAdditionalBindings	parser/option.go	/^func (p *Parser) ParseAdditionalBindings() ([]*AdditionalBinding, error) {$/;"	f
+ParseComments	parser/comment.go	/^func (p *Parser) ParseComments() []*Comment {$/;"	f
+ParseConfig	protoparser.go	/^type ParseConfig struct {$/;"	t
+ParseEnum	parser/enum.go	/^func (p *Parser) ParseEnum() (*Enum, error) {$/;"	f
+ParseExtend	parser/extend.go	/^func (p *Parser) ParseExtend() (*Extend, error) {$/;"	f
+ParseField	parser/field.go	/^func (p *Parser) ParseField() (*Field, error) {$/;"	f
+ParseImport	parser/import.go	/^func (p *Parser) ParseImport() (*Import, error) {$/;"	f
+ParseMapField	parser/mapField.go	/^func (p *Parser) ParseMapField() (*MapField, error) {$/;"	f
+ParseMessage	parser/message.go	/^func (p *Parser) ParseMessage() (*Message, error) {$/;"	f
+ParseOneof	parser/oneof.go	/^func (p *Parser) ParseOneof() (*Oneof, error) {$/;"	f
+ParseOption	parser/option.go	/^func (p *Parser) ParseOption() (*Option, error) {$/;"	f
+ParsePackage	parser/package.go	/^func (p *Parser) ParsePackage() (*Package, error) {$/;"	f
+ParseProto	parser/proto.go	/^func (p *Parser) ParseProto() (*Proto, error) {$/;"	f
+ParseReserved	parser/reserved.go	/^func (p *Parser) ParseReserved() (*Reserved, error) {$/;"	f
+ParseService	parser/service.go	/^func (p *Parser) ParseService() (*Service, error) {$/;"	f
+ParseSyntax	parser/syntax.go	/^func (p *Parser) ParseSyntax() (*Syntax, error) {$/;"	f
+Parser	parser/parser.go	/^type Parser struct {$/;"	t
+Peek	internal/lexer/lexer.go	/^func (lex *Lexer) Peek() scanner.Token {$/;"	f
+Position	internal/lexer/scanner/position.go	/^type Position struct {$/;"	t
+Position	parser/meta/position.go	/^type Position struct {$/;"	t
+PrettyFormat	internal/util_test/pretty.go	/^func PrettyFormat(v interface{}) string {$/;"	f
+Proto	interpret/unordered/proto.go	/^type Proto struct {$/;"	t
+Proto	parser/proto.go	/^type Proto struct {$/;"	t
+ProtoBody	interpret/unordered/proto.go	/^type ProtoBody struct {$/;"	t
+ProtoMeta	parser/proto.go	/^type ProtoMeta struct {$/;"	t
+RPC	parser/service.go	/^type RPC struct {$/;"	t
+RPCRequest	parser/service.go	/^type RPCRequest struct {$/;"	t
+RPCResponse	parser/service.go	/^type RPCResponse struct {$/;"	t
+RUN_EXAMPLE_DEBUG	Makefile	/^RUN_EXAMPLE_DEBUG=false$/;"	m
+RUN_EXAMPLE_PERMISSIVE	Makefile	/^RUN_EXAMPLE_PERMISSIVE=true$/;"	m
+RUN_EXAMPLE_UNORDERED	Makefile	/^RUN_EXAMPLE_UNORDERED=false$/;"	m
+Range	parser/reserved.go	/^type Range struct {$/;"	t
+ReadConstant	internal/lexer/constant.go	/^func (lex *Lexer) ReadConstant(permissive bool) (string, scanner.Position, error) {$/;"	f
+ReadEmptyStatement	internal/lexer/emptyStatement.go	/^func (lex *Lexer) ReadEmptyStatement() error {$/;"	f
+ReadEnumType	internal/lexer/enumType.go	/^func (lex *Lexer) ReadEnumType() (string, scanner.Position, error) {$/;"	f
+ReadFullIdent	internal/lexer/fullIdent.go	/^func (lex *Lexer) ReadFullIdent() (string, scanner.Position, error) {$/;"	f
+ReadMessageType	internal/lexer/messageType.go	/^func (lex *Lexer) ReadMessageType() (string, scanner.Position, error) {$/;"	f
+Reserved	parser/reserved.go	/^type Reserved struct {$/;"	t
+Revert	internal/lexer/scanner/position.go	/^func (pos *Position) Revert(r rune) {$/;"	f
+Scan	internal/lexer/scanner/scanner.go	/^func (s *Scanner) Scan() (Token, string, Position, error) {$/;"	f
+ScanBoolLit	internal/lexer/scanner/mode.go	/^	ScanBoolLit$/;"	c
+ScanComment	internal/lexer/scanner/mode.go	/^	ScanComment$/;"	c
+ScanIdent	internal/lexer/scanner/mode.go	/^	ScanIdent Mode = 1 << iota$/;"	c
+ScanKeyword	internal/lexer/scanner/mode.go	/^	ScanKeyword$/;"	c
+ScanLit	internal/lexer/scanner/mode.go	/^	ScanLit = ScanNumberLit | ScanStrLit | ScanBoolLit$/;"	c
+ScanNumberLit	internal/lexer/scanner/mode.go	/^	ScanNumberLit$/;"	c
+ScanStrLit	internal/lexer/scanner/mode.go	/^	ScanStrLit$/;"	c
+Scanner	internal/lexer/scanner/scanner.go	/^type Scanner struct {$/;"	t
+Service	interpret/unordered/service.go	/^type Service struct {$/;"	t
+Service	parser/service.go	/^type Service struct {$/;"	t
+ServiceBody	interpret/unordered/service.go	/^type ServiceBody struct {$/;"	t
+SetInlineComment	parser/emptyStatement.go	/^func (e *EmptyStatement) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/enum.go	/^func (e *Enum) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/enum.go	/^func (f *EnumField) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/extend.go	/^func (m *Extend) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/field.go	/^func (f *Field) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/import.go	/^func (i *Import) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/inlineComment_test.go	/^func (m *mockHasInlineCommentSetter) SetInlineComment(comment *parser.Comment) {$/;"	f
+SetInlineComment	parser/mapField.go	/^func (m *MapField) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/message.go	/^func (m *Message) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/oneof.go	/^func (f *OneofField) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/oneof.go	/^func (o *Oneof) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/option.go	/^func (o *Option) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/package.go	/^func (p *Package) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/reserved.go	/^func (r *Reserved) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/service.go	/^func (r *RPC) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/service.go	/^func (s *Service) SetInlineComment(comment *Comment) {$/;"	f
+SetInlineComment	parser/syntax.go	/^func (s *Syntax) SetInlineComment(comment *Comment) {$/;"	f
+String	internal/lexer/scanner/position.go	/^func (pos Position) String() string {$/;"	f
+String	parser/meta/position.go	/^func (pos Position) String() string {$/;"	f
+String	parser/proto_accept_test.go	/^func (p *protoTestVisitor) String() string {$/;"	f
+Syntax	parser/syntax.go	/^type Syntax struct {$/;"	t
+TADDITIONAL	internal/lexer/scanner/token.go	/^	TADDITIONAL$/;"	c
+TBOOLLIT	internal/lexer/scanner/token.go	/^	TBOOLLIT$/;"	c
+TCOLON	internal/lexer/scanner/token.go	/^	TCOLON       \/\/ :$/;"	c
+TCOMMA	internal/lexer/scanner/token.go	/^	TCOMMA       \/\/ ,$/;"	c
+TCOMMENT	internal/lexer/scanner/token.go	/^	TCOMMENT$/;"	c
+TDOT	internal/lexer/scanner/token.go	/^	TDOT         \/\/ .$/;"	c
+TENUM	internal/lexer/scanner/token.go	/^	TENUM$/;"	c
+TEOF	internal/lexer/scanner/token.go	/^	TEOF$/;"	c
+TEQUALS	internal/lexer/scanner/token.go	/^	TEQUALS      \/\/ =$/;"	c
+TEXTEND	internal/lexer/scanner/token.go	/^	TEXTEND$/;"	c
+TFLOATLIT	internal/lexer/scanner/token.go	/^	TFLOATLIT$/;"	c
+TGREATER	internal/lexer/scanner/token.go	/^	TGREATER     \/\/ >$/;"	c
+TIDENT	internal/lexer/scanner/token.go	/^	TIDENT$/;"	c
+TILLEGAL	internal/lexer/scanner/token.go	/^	TILLEGAL Token = iota$/;"	c
+TIMPORT	internal/lexer/scanner/token.go	/^	TIMPORT$/;"	c
+TINTLIT	internal/lexer/scanner/token.go	/^	TINTLIT$/;"	c
+TLEFTCURLY	internal/lexer/scanner/token.go	/^	TLEFTCURLY   \/\/ {$/;"	c
+TLEFTPAREN	internal/lexer/scanner/token.go	/^	TLEFTPAREN   \/\/ ($/;"	c
+TLEFTSQUARE	internal/lexer/scanner/token.go	/^	TLEFTSQUARE  \/\/ [$/;"	c
+TLESS	internal/lexer/scanner/token.go	/^	TLESS        \/\/ <$/;"	c
+TMAP	internal/lexer/scanner/token.go	/^	TMAP$/;"	c
+TMESSAGE	internal/lexer/scanner/token.go	/^	TMESSAGE$/;"	c
+TONEOF	internal/lexer/scanner/token.go	/^	TONEOF$/;"	c
+TOPTION	internal/lexer/scanner/token.go	/^	TOPTION$/;"	c
+TPACKAGE	internal/lexer/scanner/token.go	/^	TPACKAGE$/;"	c
+TPUBLIC	internal/lexer/scanner/token.go	/^	TPUBLIC$/;"	c
+TQUOTE	internal/lexer/scanner/token.go	/^	TQUOTE       \/\/ " or '$/;"	c
+TREPEATED	internal/lexer/scanner/token.go	/^	TREPEATED$/;"	c
+TRESERVED	internal/lexer/scanner/token.go	/^	TRESERVED$/;"	c
+TRETURNS	internal/lexer/scanner/token.go	/^	TRETURNS$/;"	c
+TRIGHTCURLY	internal/lexer/scanner/token.go	/^	TRIGHTCURLY  \/\/ }$/;"	c
+TRIGHTPAREN	internal/lexer/scanner/token.go	/^	TRIGHTPAREN  \/\/ )$/;"	c
+TRIGHTSQUARE	internal/lexer/scanner/token.go	/^	TRIGHTSQUARE \/\/ ]$/;"	c
+TRPC	internal/lexer/scanner/token.go	/^	TRPC$/;"	c
+TSEMICOLON	internal/lexer/scanner/token.go	/^	TSEMICOLON   \/\/ ;$/;"	c
+TSERVICE	internal/lexer/scanner/token.go	/^	TSERVICE$/;"	c
+TSTREAM	internal/lexer/scanner/token.go	/^	TSTREAM$/;"	c
+TSTRLIT	internal/lexer/scanner/token.go	/^	TSTRLIT$/;"	c
+TSYNTAX	internal/lexer/scanner/token.go	/^	TSYNTAX$/;"	c
+TWEAK	internal/lexer/scanner/token.go	/^	TWEAK$/;"	c
+TestComment_IsCStyle	parser/comment_test.go	/^func TestComment_IsCStyle(t *testing.T) {$/;"	f
+TestComment_Lines	parser/comment_test.go	/^func TestComment_Lines(t *testing.T) {$/;"	f
+TestInterpretEnum	interpret/unordered/enum_test.go	/^func TestInterpretEnum(t *testing.T) {$/;"	f
+TestInterpretMessage	interpret/unordered/message_test.go	/^func TestInterpretMessage(t *testing.T) {$/;"	f
+TestInterpretProto	interpret/unordered/proto_test.go	/^func TestInterpretProto(t *testing.T) {$/;"	f
+TestInterpretService	interpret/unordered/service_test.go	/^func TestInterpretService(t *testing.T) {$/;"	f
+TestLexer2_ReadConstant	internal/lexer/constant_test.go	/^func TestLexer2_ReadConstant(t *testing.T) {$/;"	f
+TestLexer2_ReadEmptyStatement	internal/lexer/emptyStatement_test.go	/^func TestLexer2_ReadEmptyStatement(t *testing.T) {$/;"	f
+TestLexer2_ReadEnumType	internal/lexer/enumType_test.go	/^func TestLexer2_ReadEnumType(t *testing.T) {$/;"	f
+TestLexer2_ReadFullIdent	internal/lexer/fullIdent_test.go	/^func TestLexer2_ReadFullIdent(t *testing.T) {$/;"	f
+TestLexer2_ReadMessageType	internal/lexer/messageType_test.go	/^func TestLexer2_ReadMessageType(t *testing.T) {$/;"	f
+TestParseReservedEnumFile	protoparser_test.go	/^func TestParseReservedEnumFile(t *testing.T) {$/;"	f
+TestParseSimpleFile	protoparser_test.go	/^func TestParseSimpleFile(t *testing.T) {$/;"	f
+TestParseTMEnumFile	protoparser_test.go	/^func TestParseTMEnumFile(t *testing.T) {$/;"	f
+TestParser_MaybeScanInlineComment	parser/inlineComment_test.go	/^func TestParser_MaybeScanInlineComment(t *testing.T) {$/;"	f
+TestParser_ParseComments	parser/comment_test.go	/^func TestParser_ParseComments(t *testing.T) {$/;"	f
+TestParser_ParseEnum	parser/enum_test.go	/^func TestParser_ParseEnum(t *testing.T) {$/;"	f
+TestParser_ParseExtend	parser/extend_test.go	/^func TestParser_ParseExtend(t *testing.T) {$/;"	f
+TestParser_ParseField	parser/field_test.go	/^func TestParser_ParseField(t *testing.T) {$/;"	f
+TestParser_ParseImport	parser/import_test.go	/^func TestParser_ParseImport(t *testing.T) {$/;"	f
+TestParser_ParseMapField	parser/mapField_test.go	/^func TestParser_ParseMapField(t *testing.T) {$/;"	f
+TestParser_ParseMessage	parser/message_test.go	/^func TestParser_ParseMessage(t *testing.T) {$/;"	f
+TestParser_ParseOneof	parser/oneof_test.go	/^func TestParser_ParseOneof(t *testing.T) {$/;"	f
+TestParser_ParseOption	parser/option_test.go	/^func TestParser_ParseOption(t *testing.T) {$/;"	f
+TestParser_ParsePackage	parser/package_test.go	/^func TestParser_ParsePackage(t *testing.T) {$/;"	f
+TestParser_ParseProto	parser/proto_test.go	/^func TestParser_ParseProto(t *testing.T) {$/;"	f
+TestParser_ParseReserved	parser/reserved_test.go	/^func TestParser_ParseReserved(t *testing.T) {$/;"	f
+TestParser_ParseService	parser/service_test.go	/^func TestParser_ParseService(t *testing.T) {$/;"	f
+TestParser_ParseSyntax	parser/syntax_test.go	/^func TestParser_ParseSyntax(t *testing.T) {$/;"	f
+TestPosition_Advance	internal/lexer/scanner/position_test.go	/^func TestPosition_Advance(t *testing.T) {$/;"	f
+TestPosition_Revert	internal/lexer/scanner/position_test.go	/^func TestPosition_Revert(t *testing.T) {$/;"	f
+TestPosition_String	parser/meta/position_test.go	/^func TestPosition_String(t *testing.T) {$/;"	f
+TestProto_Accept	parser/proto_accept_test.go	/^func TestProto_Accept(t *testing.T) {$/;"	f
+TestScanner_Scan	internal/lexer/scanner/scanner_test.go	/^func TestScanner_Scan(t *testing.T) {$/;"	f
+TestScanner_UnScan	internal/lexer/scanner/scanner_test.go	/^func TestScanner_UnScan(t *testing.T) {$/;"	f
+Token	internal/lexer/scanner/token.go	/^type Token int$/;"	t
+UnNext	internal/lexer/lexer.go	/^func (lex *Lexer) UnNext() {$/;"	f
+UnScan	internal/lexer/scanner/scanner.go	/^func (s *Scanner) UnScan() {$/;"	f
+UnorderedInterpret	protoparser.go	/^func UnorderedInterpret(proto *parser.Proto) (*unordered.Proto, error) {$/;"	f
+VisitComment	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitComment(c *parser.Comment) {$/;"	f
+VisitEmptyStatement	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitEmptyStatement(*parser.EmptyStatement) bool {$/;"	f
+VisitEnum	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitEnum(e *parser.Enum) bool {$/;"	f
+VisitEnumField	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitEnumField(f *parser.EnumField) bool {$/;"	f
+VisitExtend	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitExtend(e *parser.Extend) bool {$/;"	f
+VisitField	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitField(f *parser.Field) bool {$/;"	f
+VisitImport	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitImport(i *parser.Import) bool {$/;"	f
+VisitMapField	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitMapField(m *parser.MapField) bool {$/;"	f
+VisitMessage	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitMessage(m *parser.Message) bool {$/;"	f
+VisitOneof	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitOneof(o *parser.Oneof) bool {$/;"	f
+VisitOneofField	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitOneofField(f *parser.OneofField) bool {$/;"	f
+VisitOption	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitOption(o *parser.Option) bool {$/;"	f
+VisitPackage	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitPackage(pa *parser.Package) bool {$/;"	f
+VisitRPC	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitRPC(r *parser.RPC) bool {$/;"	f
+VisitReserved	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitReserved(r *parser.Reserved) bool {$/;"	f
+VisitService	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitService(s *parser.Service) bool {$/;"	f
+VisitSyntax	parser/proto_accept_test.go	/^func (p *protoTestVisitor) VisitSyntax(s *parser.Syntax) bool {$/;"	f
+Visitee	parser/visitee.go	/^type Visitee interface {$/;"	t
+Visitor	parser/visitor.go	/^type Visitor interface {$/;"	t
+WithBodyIncludingComments	parser/parser.go	/^func WithBodyIncludingComments(bodyIncludingComments bool) ConfigOption {$/;"	f
+WithBodyIncludingComments	protoparser.go	/^func WithBodyIncludingComments(bodyIncludingComments bool) Option {$/;"	f
+WithDebug	internal/lexer/lexer.go	/^func WithDebug(debug bool) Option {$/;"	f
+WithDebug	protoparser.go	/^func WithDebug(debug bool) Option {$/;"	f
+WithFilename	internal/lexer/lexer.go	/^func WithFilename(filename string) Option {$/;"	f
+WithFilename	internal/lexer/scanner/scanner.go	/^func WithFilename(filename string) Option {$/;"	f
+WithFilename	protoparser.go	/^func WithFilename(filename string) Option {$/;"	f
+WithPermissive	parser/parser.go	/^func WithPermissive(permissive bool) ConfigOption {$/;"	f
+WithPermissive	protoparser.go	/^func WithPermissive(permissive bool) Option {$/;"	f
+asKeywordToken	internal/lexer/scanner/token.go	/^func asKeywordToken(st string) Token {$/;"	f
+asMiscToken	internal/lexer/scanner/token.go	/^func asMiscToken(ch rune) Token {$/;"	f
+cPlusStyleCommentPrefix	parser/comment.go	/^	cPlusStyleCommentPrefix = "\/\/"$/;"	c
+cStyleCommentPrefix	parser/comment.go	/^	cStyleCommentPrefix     = "\/*"$/;"	c
+cStyleCommentSuffix	parser/comment.go	/^	cStyleCommentSuffix     = "*\/"$/;"	c
+debug	_example/dump/main.go	/^	debug      = flag.Bool("debug", false, "debug flag to output more parsing process detail")$/;"	v
+eof	internal/lexer/scanner/scanner.go	/^var eof = rune(0)$/;"	v
+interpretEnumBody	interpret/unordered/enum.go	/^func interpretEnumBody(src []parser.Visitee) ($/;"	f
+interpretExtendBody	interpret/unordered/extend.go	/^func interpretExtendBody(src []parser.Visitee) ($/;"	f
+interpretMessageBody	interpret/unordered/message.go	/^func interpretMessageBody(src []parser.Visitee) ($/;"	f
+interpretProtoBody	interpret/unordered/proto.go	/^func interpretProtoBody(src []parser.Visitee) ($/;"	f
+interpretServiceBody	interpret/unordered/service.go	/^func interpretServiceBody(src []parser.Visitee) ($/;"	f
+isBoolLit	internal/lexer/scanner/boolLit.go	/^func isBoolLit(ident string) bool {$/;"	f
+isDecimalDigit	internal/lexer/scanner/lettersdigits.go	/^func isDecimalDigit(r rune) bool {$/;"	f
+isEOF	internal/lexer/scanner/eof.go	/^func (s *Scanner) isEOF() bool {$/;"	f
+isFloatLitKeyword	internal/lexer/scanner/floatLit.go	/^func isFloatLitKeyword(ident string) bool {$/;"	f
+isHexDigit	internal/lexer/scanner/lettersdigits.go	/^func isHexDigit(r rune) bool {$/;"	f
+isLetter	internal/lexer/scanner/lettersdigits.go	/^func isLetter(r rune) bool {$/;"	f
+isOctalDigit	internal/lexer/scanner/lettersdigits.go	/^func isOctalDigit(r rune) bool {$/;"	f
+isQuote	internal/lexer/scanner/quote.go	/^func isQuote(ch rune) bool {$/;"	f
+keyTypeConstants	parser/mapField.go	/^var keyTypeConstants = map[string]struct{}{$/;"	v
+lexer	internal/lexer/constant.go	/^package lexer$/;"	p
+lexer	internal/lexer/emptyStatement.go	/^package lexer$/;"	p
+lexer	internal/lexer/enumType.go	/^package lexer$/;"	p
+lexer	internal/lexer/error.go	/^package lexer$/;"	p
+lexer	internal/lexer/fullIdent.go	/^package lexer$/;"	p
+lexer	internal/lexer/lexer.go	/^package lexer$/;"	p
+lexer	internal/lexer/messageType.go	/^package lexer$/;"	p
+lexer_test	internal/lexer/constant_test.go	/^package lexer_test$/;"	p
+lexer_test	internal/lexer/emptyStatement_test.go	/^package lexer_test$/;"	p
+lexer_test	internal/lexer/enumType_test.go	/^package lexer_test$/;"	p
+lexer_test	internal/lexer/fullIdent_test.go	/^package lexer_test$/;"	p
+lexer_test	internal/lexer/messageType_test.go	/^package lexer_test$/;"	p
+main	_example/dump/main.go	/^func main() {$/;"	f
+main	_example/dump/main.go	/^package main$/;"	p
+mergeMultilineStrLit	internal/lexer/constant.go	/^func (lex *Lexer) mergeMultilineStrLit() string {$/;"	f
+meta	parser/meta/meta.go	/^package meta$/;"	p
+meta	parser/meta/position.go	/^package meta$/;"	p
+meta_test	parser/meta/position_test.go	/^package meta_test$/;"	p
+mockHasInlineCommentSetter	parser/inlineComment_test.go	/^type mockHasInlineCommentSetter struct {$/;"	t
+nextWithSpecificMode	internal/lexer/lexer.go	/^func (lex *Lexer) nextWithSpecificMode(nextMode scanner.Mode) {$/;"	f
+parseCloudEndpointsOptionConstant	parser/option.go	/^func (p *Parser) parseCloudEndpointsOptionConstant() (*CloudEndpoint, error) {$/;"	f
+parseComment	parser/comment.go	/^func (p *Parser) parseComment() (*Comment, error) {$/;"	f
+parseConstList	parser/field.go	/^func (p *Parser) parseConstList() ([]string, error) {$/;"	f
+parseEnumBody	parser/enum.go	/^func (p *Parser) parseEnumBody() ($/;"	f
+parseEnumBodyStatementErr	parser/enum.go	/^type parseEnumBodyStatementErr struct {$/;"	t
+parseEnumField	parser/enum.go	/^func (p *Parser) parseEnumField() (*EnumField, error) {$/;"	f
+parseEnumValueOption	parser/enum.go	/^func (p *Parser) parseEnumValueOption() (*EnumValueOption, error) {$/;"	f
+parseEnumValueOptions	parser/enum.go	/^func (p *Parser) parseEnumValueOptions() ([]*EnumValueOption, error) {$/;"	f
+parseExtendBody	parser/extend.go	/^func (p *Parser) parseExtendBody() ($/;"	f
+parseExtendBodyStatementErr	parser/extend.go	/^type parseExtendBodyStatementErr struct {$/;"	t
+parseFieldNames	parser/reserved.go	/^func (p *Parser) parseFieldNames() ([]string, error) {$/;"	f
+parseFieldNumber	parser/field.go	/^func (p *Parser) parseFieldNumber() (string, error) {$/;"	f
+parseFieldOption	parser/field.go	/^func (p *Parser) parseFieldOption() (*FieldOption, error) {$/;"	f
+parseFieldOptions	parser/field.go	/^func (p *Parser) parseFieldOptions() ([]*FieldOption, error) {$/;"	f
+parseFieldOptionsOption	parser/field.go	/^func (p *Parser) parseFieldOptionsOption() ([]*FieldOption, error) {$/;"	f
+parseGoProtoValidatorFieldOptionConstant	parser/field.go	/^func (p *Parser) parseGoProtoValidatorFieldOptionConstant() (string, error) {$/;"	f
+parseInlineComment	parser/inlineComment.go	/^func (p *Parser) parseInlineComment() *Comment {$/;"	f
+parseKeyType	parser/mapField.go	/^func (p *Parser) parseKeyType() (string, error) {$/;"	f
+parseMessageBody	parser/message.go	/^func (p *Parser) parseMessageBody() ($/;"	f
+parseMessageBodyStatementErr	parser/message.go	/^type parseMessageBodyStatementErr struct {$/;"	t
+parseOneofField	parser/oneof.go	/^func (p *Parser) parseOneofField() (*OneofField, error) {$/;"	f
+parseOptionName	parser/option.go	/^func (p *Parser) parseOptionName() (string, error) {$/;"	f
+parseProtoBody	parser/proto.go	/^func (p *Parser) parseProtoBody() ([]Visitee, error) {$/;"	f
+parseQuotedFieldName	parser/reserved.go	/^func (p *Parser) parseQuotedFieldName() (string, error) {$/;"	f
+parseRPC	parser/service.go	/^func (p *Parser) parseRPC() (*RPC, error) {$/;"	f
+parseRPCOptions	parser/service.go	/^func (p *Parser) parseRPCOptions() ([]*Option, error) {$/;"	f
+parseRPCRequest	parser/service.go	/^func (p *Parser) parseRPCRequest() (*RPCRequest, error) {$/;"	f
+parseRPCResponse	parser/service.go	/^func (p *Parser) parseRPCResponse() (*RPCResponse, error) {$/;"	f
+parseRange	parser/reserved.go	/^func (p *Parser) parseRange() (*Range, error) {$/;"	f
+parseRanges	parser/reserved.go	/^func (p *Parser) parseRanges() ([]*Range, error) {$/;"	f
+parseReservedErr	parser/reserved.go	/^type parseReservedErr struct {$/;"	t
+parseServiceBody	parser/service.go	/^func (p *Parser) parseServiceBody() ($/;"	f
+parseTrailingSemis	parser/service.go	/^func (p *Parser) parseTrailingSemis() {$/;"	f
+parseType	parser/field.go	/^func (p *Parser) parseType() (string, scanner.Position, error) {$/;"	f
+parser	parser/comment.go	/^package parser$/;"	p
+parser	parser/emptyStatement.go	/^package parser$/;"	p
+parser	parser/enum.go	/^package parser$/;"	p
+parser	parser/error.go	/^package parser$/;"	p
+parser	parser/extend.go	/^package parser$/;"	p
+parser	parser/field.go	/^package parser$/;"	p
+parser	parser/import.go	/^package parser$/;"	p
+parser	parser/inlineComment.go	/^package parser$/;"	p
+parser	parser/mapField.go	/^package parser$/;"	p
+parser	parser/message.go	/^package parser$/;"	p
+parser	parser/oneof.go	/^package parser$/;"	p
+parser	parser/option.go	/^package parser$/;"	p
+parser	parser/package.go	/^package parser$/;"	p
+parser	parser/parser.go	/^package parser$/;"	p
+parser	parser/proto.go	/^package parser$/;"	p
+parser	parser/reserved.go	/^package parser$/;"	p
+parser	parser/service.go	/^package parser$/;"	p
+parser	parser/syntax.go	/^package parser$/;"	p
+parser	parser/visitee.go	/^package parser$/;"	p
+parser	parser/visitor.go	/^package parser$/;"	p
+parser_test	parser/comment_test.go	/^package parser_test$/;"	p
+parser_test	parser/enum_test.go	/^package parser_test$/;"	p
+parser_test	parser/extend_test.go	/^package parser_test$/;"	p
+parser_test	parser/field_test.go	/^package parser_test$/;"	p
+parser_test	parser/import_test.go	/^package parser_test$/;"	p
+parser_test	parser/inlineComment_test.go	/^package parser_test$/;"	p
+parser_test	parser/mapField_test.go	/^package parser_test$/;"	p
+parser_test	parser/message_test.go	/^package parser_test$/;"	p
+parser_test	parser/oneof_test.go	/^package parser_test$/;"	p
+parser_test	parser/option_test.go	/^package parser_test$/;"	p
+parser_test	parser/package_test.go	/^package parser_test$/;"	p
+parser_test	parser/proto_accept_test.go	/^package parser_test$/;"	p
+parser_test	parser/proto_test.go	/^package parser_test$/;"	p
+parser_test	parser/reserved_test.go	/^package parser_test$/;"	p
+parser_test	parser/service_test.go	/^package parser_test$/;"	p
+parser_test	parser/syntax_test.go	/^package parser_test$/;"	p
+peek	internal/lexer/scanner/scanner.go	/^func (s *Scanner) peek() rune {$/;"	f
+permissive	_example/dump/main.go	/^	permissive = flag.Bool("permissive", true, "permissive flag to allow the permissive parsing rather than the just documented spec")$/;"	v
+proto	_example/dump/main.go	/^	proto      = flag.String("proto", "_testdata\/simple.proto", "path to the Protocol Buffer file")$/;"	v
+protoTestVisitor	parser/proto_accept_test.go	/^type protoTestVisitor struct {$/;"	t
+protoparser	protoparser.go	/^package protoparser$/;"	p
+protoparser	protoparser_test.go	/^package protoparser$/;"	p
+read	internal/lexer/scanner/scanner.go	/^func (s *Scanner) read() (r rune) {$/;"	f
+run	_example/dump/main.go	/^func run() int {$/;"	f
+scan	internal/lexer/scanner/scanner.go	/^func (s *Scanner) scan() (Token, string, Position, error) {$/;"	f
+scanCharValue	internal/lexer/scanner/strLit.go	/^func (s *Scanner) scanCharValue() (string, error) {$/;"	f
+scanComment	internal/lexer/scanner/comment.go	/^func (s *Scanner) scanComment() (string, error) {$/;"	f
+scanDecimals	internal/lexer/scanner/numberLit.go	/^func (s *Scanner) scanDecimals() (string, error) {$/;"	f
+scanExponent	internal/lexer/scanner/numberLit.go	/^func (s *Scanner) scanExponent() (string, error) {$/;"	f
+scanFractionPart	internal/lexer/scanner/numberLit.go	/^func (s *Scanner) scanFractionPart() (string, error) {$/;"	f
+scanFractionPartNoOmit	internal/lexer/scanner/numberLit.go	/^func (s *Scanner) scanFractionPartNoOmit() (string, error) {$/;"	f
+scanIdent	internal/lexer/scanner/ident.go	/^func (s *Scanner) scanIdent() string {$/;"	f
+scanNumberLit	internal/lexer/scanner/numberLit.go	/^func (s *Scanner) scanNumberLit() (Token, string, error) {$/;"	f
+scanStrLit	internal/lexer/scanner/strLit.go	/^func (s *Scanner) scanStrLit() (string, error) {$/;"	f
+scanner	internal/lexer/scanner/boolLit.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/comment.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/eof.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/error.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/floatLit.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/ident.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/lettersdigits.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/mode.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/numberLit.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/position.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/quote.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/scanner.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/strLit.go	/^package scanner$/;"	p
+scanner	internal/lexer/scanner/token.go	/^package scanner$/;"	p
+scanner_test	internal/lexer/scanner/position_test.go	/^package scanner_test$/;"	p
+scanner_test	internal/lexer/scanner/scanner_test.go	/^package scanner_test$/;"	p
+tryScanEscape	internal/lexer/scanner/strLit.go	/^func (s *Scanner) tryScanEscape() string {$/;"	f
+typeConstants	parser/field.go	/^var typeConstants = map[string]struct{}{$/;"	v
+unexpected	internal/lexer/error.go	/^func (lex *Lexer) unexpected(found, expected string) error {$/;"	f
+unexpected	internal/lexer/scanner/error.go	/^func (s *Scanner) unexpected(found rune, expected string) error {$/;"	f
+unexpected	parser/error.go	/^func (p *Parser) unexpected(expected string) error {$/;"	f
+unordered	_example/dump/main.go	/^	unordered  = flag.Bool("unordered", false, "unordered flag to output another one without interface{}")$/;"	v
+unordered	interpret/unordered/enum.go	/^package unordered$/;"	p
+unordered	interpret/unordered/extend.go	/^package unordered$/;"	p
+unordered	interpret/unordered/message.go	/^package unordered$/;"	p
+unordered	interpret/unordered/proto.go	/^package unordered$/;"	p
+unordered	interpret/unordered/service.go	/^package unordered$/;"	p
+unordered_test	interpret/unordered/enum_test.go	/^package unordered_test$/;"	p
+unordered_test	interpret/unordered/message_test.go	/^package unordered_test$/;"	p
+unordered_test	interpret/unordered/proto_test.go	/^package unordered_test$/;"	p
+unordered_test	interpret/unordered/service_test.go	/^package unordered_test$/;"	p
+unread	internal/lexer/scanner/scanner.go	/^func (s *Scanner) unread(ch rune) {$/;"	f
+util_test	internal/util_test/pretty.go	/^package util_test$/;"	p
