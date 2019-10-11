@@ -86,7 +86,7 @@ func (p *Parser) ParseOption() (*Option, error) {
 			return nil, err
 		}
 	default:
-		constant, _, err = p.lex.ReadConstant()
+		constant, _, err = p.lex.ReadConstant(p.permissive)
 		if err != nil {
 			return nil, err
 		}
@@ -140,7 +140,7 @@ func (p *Parser) parseCloudEndpointsOptionConstant() (*CloudEndpoint, error) {
 				return nil, p.unexpected(":")
 			}
 
-			constant, _, err := p.lex.ReadConstant()
+			constant, _, err := p.lex.ReadConstant(p.permissive)
 			if err != nil {
 				return nil, err
 			}
@@ -237,7 +237,7 @@ func (p *Parser) ParseAdditionalBindings() ([]*AdditionalBinding, error) {
 
 		var values []string
 
-		constVal, _, constErr := p.lex.ReadConstant()
+		constVal, _, constErr := p.lex.ReadConstant(p.permissive)
 
 		if constErr != nil {
 			return nil, constErr

@@ -169,13 +169,13 @@ func (p *Parser) parseFieldOption() (*FieldOption, error) {
 		if !p.permissive {
 			return nil, p.unexpected("constant or permissive mode")
 		}
-		
+
 		constant, err = p.parseGoProtoValidatorFieldOptionConstant()
 		if err != nil {
 			return nil, err
 		}
 	default:
-		constant, _, err = p.lex.ReadConstant()
+		constant, _, err = p.lex.ReadConstant(p.permissive)
 		if err != nil {
 			return nil, err
 		}
@@ -226,7 +226,7 @@ func (p *Parser) parseGoProtoValidatorFieldOptionConstant() (string, error) {
 			ret += strings.Join(consts, " ")
 			ret += "]"
 		default:
-			constant, _, err := p.lex.ReadConstant()
+			constant, _, err := p.lex.ReadConstant(p.permissive)
 			if err != nil {
 				return "", err
 			}

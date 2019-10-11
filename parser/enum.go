@@ -305,7 +305,7 @@ func (p *Parser) parseEnumValueOption() (*EnumValueOption, error) {
 			return nil, opsErr
 		}
 	default:
-		constant, _, err := p.lex.ReadConstant()
+		constant, _, err := p.lex.ReadConstant(p.permissive)
 		if err != nil {
 			return nil, err
 		}
