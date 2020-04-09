@@ -139,11 +139,22 @@ func (p *Parser) parseCloudEndpointsOptionConstant() (*CloudEndpoint, error) {
 			if p.lex.Token != scanner.TCOLON {
 				return nil, p.unexpected(":")
 			}
-
-			constant, _, err := p.lex.ReadConstant(p.permissive)
-			if err != nil {
-				return nil, err
+			
+			constant := ""
+			if p.lex.Peek() == scanner.TLEFTCURLY {
+				endpoint, err := p.parseCloudEndpointsOptionConstant()
+				if err != nil {
+					return nil, err
+				}
+				constant = OptionConstantToString(endpoint)
+			} else {
+				cons, _, err := p.lex.ReadConstant(p.permissive)
+				if err != nil {
+					return nil, err
+				}
+				constant = cons
 			}
+
 			endpointFields = append(endpointFields, &EndpointFieldOption{
 				OptionName: ident,
 				Constant:   constant,
@@ -163,6 +174,15 @@ func (p *Parser) parseCloudEndpointsOptionConstant() (*CloudEndpoint, error) {
 			p.lex.UnNext()
 		}
 	}
+}
+
+func OptionConstantToString(endpoint *CloudEndpoint) (string) {
+ 	result := "{"
+	for _, field := range endpoint.Fields {
+		result += field.OptionName + ":" + field.Constant + ","
+	}
+	result += "}"
+	return result
 }
 
 // optionName = ( ident | "(" fullIdent ")" ) { "." ident }

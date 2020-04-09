@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service CoreAPIContracts {
+    option (api.section) = "Contrats";
+    option (release.service) = {
+        change_type: ADD_SERVICE
+        feature_flag: "KERN_220_NEW_SIMULATION_API_DEFINITIONS"
+        release_version: {major: 1, minor: 12}
+    };
+    // A dummy RPC that will soon be replaced by a real one.
+    rpc DummyRPC(DummyRPCRequest) returns (DummyRPCResponse) {
+        option (google.api.http) = {
+            get: "/v1/contracts-dummy"
+        };
+    };
+}
