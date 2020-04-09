@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service ExampleService {
+    option (api.section) = "Test";
+    option (release.service) = {
+        option1: value1
+        option2: "Value 2"
+        option3: {x1: 1, x2: 12}
+    };
+
+    rpc DummyRPC(DummyRPCRequest) returns (DummyRPCResponse) {
+        option (google.api.http) = {
+            get: "/endpoint/value"
+        };
+    };
+}

@@ -40,3 +40,15 @@ func TestParseReservedEnumFile(t *testing.T) {
 		t.Errorf("Failed to parse proto, %v", err)
 	}
 }
+
+func TestParseReleaseVersionFile(t *testing.T) {
+	reader, err := os.Open("_testdata/releaseVersion.proto")
+	if err != nil {
+		t.Error("Failed to open file")
+	}
+	defer reader.Close()
+	_, err = Parse(reader)
+	if err != nil {
+		t.Errorf("Failed to parse proto, %v", err)
+	}
+}

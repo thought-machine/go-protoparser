@@ -276,6 +276,45 @@ option (google.api.http) = {
 				},
 			},
 		},
+		{
+			name: "parse option field object values",
+			input: `
+option (release.service) = {
+        release_version: {major: 1, minor: 12}
+};`,
+			permissive: true,
+			wantOption: &parser.Option{
+				OptionName: "(release.service)",
+				Constant:   "",
+				Endpoint: &parser.CloudEndpoint{
+					Fields: []*parser.EndpointFieldOption{
+						{
+							OptionName: "release_version",
+							Constant:   "{major:1,minor:12,}",
+							Meta: meta.Meta{
+								Pos: meta.Position{
+									Offset: 38,
+									Line:   3,
+									Column: 9,
+								},
+							},
+						},
+					},
+				},
+				Meta: meta.Meta{
+					Pos: meta.Position{
+						Offset: 1,
+						Line:   2,
+						Column: 1,
+					},
+					LastPos: meta.Position{
+						Offset: 78,
+						Line:   4,
+						Column: 2,
+					},
+				},
+			},
+		},
 	}
 
 	for _, test := range tests {
